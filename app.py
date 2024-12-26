@@ -4,6 +4,7 @@ import os
 import sys
 import json
 import html
+import httpx
 import aiohttp
 import asyncio
 import requests
@@ -29,7 +30,7 @@ class Config:
     API_HASH = str(env.get("API_HASH", "8fd30dc496aea7c14cf675f59b74ec6f")
     BOT_TOKEN = str(env.get("BOT_TOKEN", ""))
 
-import httpx
+
 from httpx import AsyncClient
 
 async def WebScrap(Link: str, *args, **kwargs):
