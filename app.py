@@ -30,6 +30,13 @@ class Config:
     API_HASH = str(env.get("API_HASH", "8fd30dc496aea7c14cf675f59b74ec6f")
     BOT_TOKEN = str(env.get("BOT_TOKEN", ""))
 
+app = Client(
+    name="ScoucerX",
+    api_id=Config.API_ID,
+    api_hash=Config.API_HASH,
+    bot_token=Config.BOT_TOKEN,
+    in_memory=True
+)
 
 from httpx import AsyncClient
 
