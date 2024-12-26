@@ -27,7 +27,7 @@ class Config:
     SUDOERS = list(map(int, env.get("SUDOERS", "6505111743 6517565595 5896960462 5220416927").split()))
     PREFIXS = list(env.get("PREFIXS", "? * $ . ! /").split())
     API_ID = int(env.get("API_ID", "29400566"))
-    API_HASH = str(env.get("API_HASH", "8fd30dc496aea7c14cf675f59b74ec6f")
+    API_HASH = str(env.get("API_HASH", "8fd30dc496aea7c14cf675f59b74ec6f"))
     BOT_TOKEN = str(env.get("BOT_TOKEN", "8054875786:AAG3YDeTKlFJv9tvXJuQQUABECmYI9gFbJk"))
 
 app = Client(
