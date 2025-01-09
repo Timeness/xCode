@@ -358,15 +358,6 @@ from datetime import datetime
 from pyrogram import filters
 from pyrogram.types import Message
 
-async def aexec(code, app, msg):
-    exec(
-        "async def aexec(app, msg): "
-        + "\n p = print"
-        + "\n repy= msg.reply_to_message"
-        + "".join(f"\n {l_}" for l_ in code.split("\n"))
-    )
-    return await locals()"__aexec"
-
 @app.on_message(filters.command("p2"))
 @app.on_edited_message(filters.command("p2"))
 async def runPyro_Funcs(app: app, msg: Message) -> None:
