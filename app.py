@@ -281,7 +281,7 @@ async def exece_Terms(app:app, msg:Message) -> Optional[str]:
             "cloudscraper": cloudscraper,
             "json": json,
             "aiohttp": aiohttp,
-            "print": _print,
+            "print": msg.reply,
             "send": send,
             "stdout": out_code,
             "traceback": traceback,
